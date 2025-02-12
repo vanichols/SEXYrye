@@ -3,51 +3,47 @@
 
 library(readxl)
 library(tidyverse)
+library(lubridate)
 
 eu <- read_csv("data-raw/eukey/sexy1_eukey.csv")
 
 # 1. raw data -------------------------------------------------------------
 
+read_csv("data-raw/standcounts/sexy1_standcount.csv")
 
 d1 <-
   read_excel("data-raw/coverage/2025-02-07_tim-drone-coverage.xlsx") %>% 
-  janitor::clean_names()
+  janitor::clean_names() %>% 
+  mutate(date = ymd("2025-02-07"))
 
 
 # 2. fix some details -----------------------------------------------------
 
-d1 %>% 
-  mutate(p)
-  
-
 d2 <- 
   d1 %>% 
-  mutate(crop_cat = case_when(
-    croptrt_id == "p" ~ "perenn",
-    croptrt_id == "xp" ~ "perenn", 
-    croptrt_id == "pcc" ~ "perenn", 
-    croptrt_id == "xpcc" ~ "perenn", 
-    
-    croptrt_id == "a" ~ "ann",
-    croptrt_id == "xa" ~ "ann", 
-    croptrt_id == "acc" ~ "ann", 
-    croptrt_id == "xacc" ~ "ann", 
-    
-    croptrt_id == "aprows" ~ "mix",
-    croptrt_id == "xaprows" ~ "mix", 
-    croptrt_id == "apmix" ~ "mix", 
-    croptrt_id == "xapmix" ~ "mix", 
-    
+  mutate(plot_idtim = case_when(
+    roi_names_feature_names == '101ab' ~ '101b',
+    TRUE ~ roi_names_feature_names
   ))
+  
+
+
+# 3. clean up -------------------------------------------------------------
+
+d3 <-
+  d2 %>% 
+  mutate(trial_id = "Trial1") %>% 
+  select(trial_id, date, plot_idtim, everything(), -roi_names_feature_names)
+
 
 
 # write it ----------------------------------------------------------------
 
 
-sexy1_eukey <- d2
+sexy1_coverage <- d3
   
   
-usethis::use_data(sexy1_eukey, overwrite = TRUE)
+usethis::use_data(sexy1_coverage, overwrite = TRUE)
 
 sexy1_eukey %>% 
-  write_csv("data-raw/eukey/sexy1_eukey.csv")
+  write_csv("data-raw/eukey/sexy1_coverage.csv")
