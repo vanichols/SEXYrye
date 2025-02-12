@@ -1,0 +1,40 @@
+---
+output: github_document
+---
+
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# SEXYrye
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of SEXYrye is to provide transparency in data cleaning, and to make the data from the SEXY Rye trial easily accessible and shareable. 
+
+## Installation
+
+You can install the development version of SEXYrye from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("vanichols/SEXYrye")
+```
+
+## Example
+
+This is a basic example of the type of data contained in this package. It's easy to pull up, just type sexy... and it will provide suggestions of the available data you might want to pull up. 
+
+```{r example}
+library(SEXYrye)
+
+sexy1_eukey
+
+```

@@ -5,14 +5,12 @@ library(readxl)
 library(tidyverse)
 library(lubridate)
 
-eu <- read_csv("data-raw/eukey/sexy1_eukey.csv")
+
 
 # 1. raw data -------------------------------------------------------------
 
-read_csv("data-raw/standcounts/sexy1_standcount.csv")
-
 d1 <-
-  read_excel("data-raw/coverage/2025-02-07_tim-drone-coverage.xlsx") %>% 
+  read_excel("data-raw/drone/2024_dronedata/coverage/2025-02-07_tim-drone-coverage.xlsx") %>% 
   janitor::clean_names() %>% 
   mutate(date = ymd("2025-02-07"))
 
@@ -42,8 +40,7 @@ d3 <-
 
 sexy1_coverage <- d3
   
-  
 usethis::use_data(sexy1_coverage, overwrite = TRUE)
 
 sexy1_eukey %>% 
-  write_csv("data-raw/eukey/sexy1_coverage.csv")
+  write_csv("inst/extdata/sexy1_coverage.csv")

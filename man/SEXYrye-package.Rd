@@ -4,12 +4,12 @@
 \name{SEXYrye-package}
 \alias{SEXYrye}
 \alias{SEXYrye-package}
-\title{SEXYrye: What the Package Does (One Line, Title Case)}
+\title{SEXYrye: SEXYrye Is A Data Package From The SEXY Trial}
 \description{
-What the package does (one paragraph).
+The package doesn't do anything except make your data analysis life 10,000x easier.
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Gina Nichols \email{virginia.nichols@gmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
 
 }
 \keyword{internal}

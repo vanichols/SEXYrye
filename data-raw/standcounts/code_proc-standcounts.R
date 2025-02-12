@@ -20,9 +20,9 @@ library(janitor) #--used to clean data
 
 # 2018 --------------------------------------------------------------------
 
-eukey <- read_csv("data-raw/eukey/sexy1_eukey.csv")
+eukey <- internal_eukey1
 
-scraw <- read_excel("data-raw/standcounts/2024_standcounts/rd_20241108_standcounts.xlsx", skip = 5, na = "NA")
+scraw <- read_excel("data-raw/standcounts/rd_20241108_standcounts.xlsx", skip = 5, na = "NA")
 
 
 # process -----------------------------------------------------------------
@@ -90,9 +90,9 @@ sc4 %>%
 
 # write it ----------------------------------------------------------------
 
-sexy1_standcount <- sc4
+sexy1_standcounts <- sc4
 
-usethis::use_data(sexy1_standcount, overwrite = T)
+usethis::use_data(sexy1_standcounts, overwrite = T)
 
 sexy1_standcount %>% 
-    write_csv("data-raw/standcounts/sexy1_standcount.csv")
+    write_csv("inst/extdata/sexy1_standcounts.csv")

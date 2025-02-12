@@ -17,6 +17,12 @@
 #'   \item{plot_id}{Identifies the plot (101-112, 202-212, 301-312, 401-412)}
 #'   \item{plothalf_id}{Indicates the half of the plot, used if samples are taken from both halves or only one half}
 #'   \item{plot_idtim}{A much simpler way to designate the plot halves used by Tim (a or b)}
+#'   \item{trt_id}{A unique identifier for the treatments 
+#'   (p, xp, pcc, xpcc, a, xa, acc, xacc, aprow, xaprow, apmix, xapmix)}
+#'   \item{weedctl_id}{A unique identifier for weed control treatments (none, herbicides = herb)}
+#'   \item{cctrt_id}{A unique identifier for cover crop treatments 
+#'   (none = nocc, fall cover crop = fcc)}
+#'   \item{crop_cat}{A simple idenifier for annual (ann), perennial (perenn), or mixed (mix) systems}
 #' }
 "sexy1_eukey"
 
@@ -45,4 +51,4 @@
 #'   \item{eu2_id}{the obs unit the data was collected on}
 #'   \item{plants_m2}{The number of plants present per square meter}
 #' }
-"sexy1_standcount"
+"sexy1_standcounts"

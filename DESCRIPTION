@@ -1,10 +1,10 @@
 Package: SEXYrye
-Title: What the Package Does (One Line, Title Case)
+Title: SEXYrye Is A Data Package From The SEXY Trial
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
+    person("Gina", "Nichols", , "virginia.nichols@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Description: The package doesn't do anything except make your data analysis life 10,000x easier.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
