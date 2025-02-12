@@ -38,11 +38,19 @@ d2 <-
     
   ))
 
+# make a tim plot id
+d3 <-
+  d2 %>% 
+  mutate(plot_idtim = ifelse(plothalf_id == 'n', 'a', 'b'),
+         plot_idtim = paste0(plot_id, plot_idtim)) %>% 
+  select(trial_id, eu_id, eu2_id, block_id, plot_id, plothalf_id, 
+         plot_idtim, everything())
+  
 
 # write it ----------------------------------------------------------------
 
 
-sexy1_eukey <- d2
+sexy1_eukey <- d3
   
   
 usethis::use_data(sexy1_eukey, overwrite = TRUE)
