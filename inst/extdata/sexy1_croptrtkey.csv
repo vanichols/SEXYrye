@@ -1,0 +1,5 @@
+croptrt_id,croptrtdesc,plantingrate_kgha,planting_desc,rowspacing_cm,plantingdepth_cm
+a,Annual cereal rye (variety?) population,132,Aimed for 300 pl m-2,12.5,3
+apmix,Annual cereal rye and perennial cereal rye planted mixed and planted in rows,113,"Aimed for 300 pl m-2, 1.4 kg perennial rye for every 1 kg annual rye",12.5,3
+aprows,Annual cereal rye and perennial cereal rye planted in alternating rows,113,"Aimed for 300 pl m-2, 1.4 kg perennial rye for every 1 kg annual rye",12.5,3
+p,Perennial cereal rye population from Germany,94,Aimed for 300 pl m-2 (1 kg perennial rye contains more seeds than 1 kg annual rye),12.5,3

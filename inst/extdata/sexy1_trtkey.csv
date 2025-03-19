@@ -1,0 +1,13 @@
+trt_id,croptrt_id,cctrt_id,cropcat
+p,p,nocc,perenn
+xaprows,aprows,nocc,mix
+pcc,p,fcc,perenn
+xa,a,nocc,ann
+a,a,nocc,ann
+aprows,aprows,nocc,mix
+xacc,a,fcc,ann
+xapmix,apmix,nocc,mix
+apmix,apmix,nocc,mix
+acc,a,fcc,ann
+xp,p,nocc,perenn
+xpcc,p,fcc,perenn

@@ -1,3 +1,47 @@
+#' Description of cover crop treatments
+#'
+#' A dataset describing each cover crop treatmment in more detail.
+#' The variables are as follows:
+#'
+#' @format A data frame with 2 rows and XX variables:
+#' \describe{
+#'   \item{cctrt_id}{Uniquely identifies a cover crop treatment}
+#'   \item{desc}{A description of the treatment}
+#' }
+"sexy1_cctrtkey"
+
+#' Description of the crops used
+#'
+#' A dataset describing each crop in more detail.
+#' The variables are as follows:
+#'
+#' @format A data frame with 2 rows and XX variables:
+#' \describe{
+#'   \item{crop_id}{Uniquely identifies a crop (a, p)}
+#'   \item{cropdesc}{A description of the crop}
+#'   \item{tkw_g}{A description of the crop}
+#'   \item{germination_pct}{The % germination based on either the bag (a) or tests (p)}
+#'   \item{ergot_pct}{The percentage of the crop that was originally infested with ergot (ergot was removed using color sorting)}
+#' }
+"sexy1_cropkey"
+
+#' Description of the croptreatments used
+#'
+#' A dataset describing each crop treatment in more detail.
+#' The variables are as follows:
+#'
+#' @format A data frame with 4 rows and XX variables:
+#' \describe{
+#'   \item{croptrt_id}{Uniquely identifies a crop (a, apmix, aprows, p)}
+#'   \item{croptrtdesc}{A description of the crop treatment}
+#'   \item{plantingrate_kgha}{The crop planting rate in kg per hectare}
+#'   \item{planting_desc}{A description of the logic for the planting rates}
+#'   \item{rowspacing_cm}{The spacing between planted rows}
+#'   \item{plantingdepth_cm}{The depth of seed planting}
+#' }
+"sexy1_croptrtkey"
+
+
 #' Description of experimental units
 #'
 #' A dataset containing links between experimental and 
@@ -10,34 +54,42 @@
 #'
 #' @format A data frame with 96 rows and 10 variables:
 #' \describe{
-#'   \item{trial_id}{Identifies which trial, Trial1 was established fall 2024}
-#'   \item{eu_id}{Identifies the unique treatment instance, but north or south half of the plot}
-#'   \item{eu2_id}{Identifies a unique treatment instance}
-#'   \item{block_id}{Identifies the block (1-4)}
-#'   \item{plot_id}{Identifies the plot (101-112, 202-212, 301-312, 401-412)}
-#'   \item{plothalf_id}{Indicates the half of the plot, used if samples are taken from both halves or only one half}
-#'   \item{plot_idtim}{A much simpler way to designate the plot halves used by Tim (a or b)}
+#'   \item{trial}{Identifies which trial, Trial1 was established fall 2024}
+#'   \item{eu_id}{Identifies the unique experimental unit of measurement (plot) in an easier way compared to the plot_id}
+#'   \item{plot_id}{Identifies the unique plot using block, plot, plothalf, and sample type (see sexy1_plotkey for more info)}
 #'   \item{trt_id}{A unique identifier for the treatments 
-#'   (p, xp, pcc, xpcc, a, xa, acc, xacc, aprow, xaprow, apmix, xapmix)}
-#'   \item{weedctl_id}{A unique identifier for weed control treatments (none, herbicides = herb)}
-#'   \item{cctrt_id}{A unique identifier for cover crop treatments 
-#'   (none = nocc, fall cover crop = fcc)}
-#'   \item{crop_cat}{A simple idenifier for annual (ann), perennial (perenn), or mixed (mix) systems}
+#'   (p, xp, pcc, xpcc, a, xa, acc, xacc, aprow, xaprow, apmix, xapmix), see the sexy1_trtkey for more info}
 #' }
 "sexy1_eukey"
 
-#' Drone data from Tim, vegetation coverage
+#' Description of the plots
 #'
-#' A dataset containing the data provided by Tim and his drone
-#'  regarding vegetation coverage. The variables are as follows:
+#' A dataset describing each plot in detail
+#' The variables are as follows:
 #'
-#' @format A data frame with an expanding number of rows and 8 variables:
+#' @format A data frame with 96 rows and 5 variables:
 #' \describe{
-#'   \item{date}{the ymd the data was collected}
-#'   \item{plot_idtim}{the obs unit in Tim's notation, linked to sexy1_eu}
-#'   \item{mean}{I don't know the units on these...}
+#'   \item{plot_id}{Uniquely identifies an area of measurement}
+#'   \item{block}{The block which the plot is located in (b1, b2, b3, b4)}
+#'   \item{plot}{The plot number corrresponding to one crop treatment (101-112, 201-212, 301-312, 401-412)}
+#'   \item{plothalf}{North or south half of plot}
+#'   \item{samptype}{Whether the half is designated as destructive sampling (d) or for yield sampling (y)}
 #' }
-"sexy1_coverage"
+"sexy1_plotkey"
+
+#' Description of the treatments
+#'
+#' A dataset describing each treatment
+#' The variables are as follows:
+#'
+#' @format A data frame with 12 rows and 5 variables:
+#' \describe{
+#'   \item{trt_id}{Uniquely identifies a treatment applied to a plot}
+#'   \item{croptrt_id}{Identifies the crop treatment (see sexy1_croptrtkey)}
+#'   \item{cctrt_id}{Identifies the cover crop treatment (see sexy1_cctrtkey)}
+#'   \item{cropcat}{General categorization of the treatment as perennial, annual, or a mix}
+#' }
+"sexy1_trtkey"
 
 #' Manually collected standcount data
 #'
@@ -46,9 +98,10 @@
 #'
 #' @format A data frame with an expanding number of rows and 4 variables:
 #' \describe{
-#'   \item{trial_id}{Identifies which trial, Trial1 was established fall 2024}
+#'   \item{trial}{Identifies which trial, Trial1 was established fall 2024}
 #'   \item{date}{the ymd the data was collected}
-#'   \item{eu2_id}{the obs unit the data was collected on}
+#'   \item{eu_id}{the unit the data was collected on}
+#'   \item{plot_id}{the unit the data was collected on (see sexy1_plotkey)}
 #'   \item{plants_m2}{The number of plants present per square meter}
 #' }
 "sexy1_standcounts"
