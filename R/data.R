@@ -93,7 +93,7 @@
 
 #' Manually collected standcount data
 #'
-#' A dataset containing the data collected by Anders and Gina
+#' A dataset containing the data collected by Anders and Gina (fall) and Gina (spring)
 #'  estimating stand counts. The variables are as follows:
 #'
 #' @format A data frame with an expanding number of rows and 4 variables:

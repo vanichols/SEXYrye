@@ -38,7 +38,6 @@ scraw2 <- read_excel("data-raw/standcounts/rd_20250326_standcounts.xlsx", skip =
 f1 <-
   scraw1 %>%
   fill(date) %>% 
-  mutate(block = paste0("b", block)) %>% 
   select(-notes) %>% 
   pivot_longer(s1:s4, names_to = "subsample", values_to = "temp_plants_m2") 
 
@@ -47,7 +46,7 @@ f2 <-
   f1 %>% 
   #--8 samples sums up to 8 m of linear sampling (only did 4 per plot half), 
   #--with 12.5 cm row widths this equates to plants/m2
-  group_by(date, block, plot) %>% 
+  group_by(date, plot) %>% 
   summarise(plants_m2 = sum(temp_plants_m2, na.rm = T))
 
 #--address issues
@@ -77,8 +76,6 @@ f4 <-
   distinct() %>% 
   mutate(date = as_date(date))
 
-
-
 #--check it
 f4 %>% 
   ggplot(aes(eu_id, plants_m2)) + 
@@ -91,7 +88,6 @@ f4 %>%
 s1 <-
   scraw2 %>%
   fill(date) %>% 
-  mutate(block = paste0("b", block)) %>% 
   select(-notes) %>% 
   pivot_longer(s1:s4, names_to = "subsample", values_to = "temp_plants_m2") 
 
@@ -101,7 +97,7 @@ s2 <-
   #--8 samples sums up to 8 m of linear sampling, but I only sampled 4 m (only did 2 per plot half), 
   #--with 12.5 cm row widths this equates to plants/m2
   #--just duplicate the two samples
-  group_by(date, block, plot) %>% 
+  group_by(date, plot) %>% 
   summarise(plants_m2 = sum(temp_plants_m2, na.rm = T)*2)
 
 #--address issues
